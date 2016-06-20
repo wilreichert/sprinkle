@@ -1,0 +1,21 @@
+Operations needed for each service
+
+all
+- system configuration
+- create users
+- create groups
+
+
+gitlab
+- create projects
+- create repositories
+
+jenkins
+- create jobs
+- plugins (maybe under sysconfig)
+
+artifactory
+- create repositories
+
+Jira
+- create projects

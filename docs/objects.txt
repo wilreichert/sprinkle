@@ -1,0 +1,39 @@
+## users
+human or service user in the system
+
+- username (mandatory)
+- name (defaults to username)
+- email (defaults to username@example.com)
+- password (defaults to password)
+- keys (generates key)
+- human / service (mandatory)
+
+
+## groups
+groups of users
+- name
+- users per group
+
+## role "who can do what to whom?" needs more thought
+defines basic roles in the system, custom mapping for each service
+- users / groups
+- actions
+- services
+
+
+## project
+more or less reference a source repo and how it is represented across services
+- init (new or pull form fs / another git repo)
+- users / groups
+- type (will define i.e. kind of job created in Jenkins, etc)
+- subtype i.e. jar / war
+
+
+## services
+- host (ignore distributed systems)
+- type (source, ci, artifact, ticket)
+- kind (jenkins, gitlab, artifactory)
+- API access type & auth
+- shell access & auth
+- repositories (exists for artifactory, elsewhere?)
+- integration points with other services (could just be automatic)

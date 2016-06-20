@@ -1,0 +1,21 @@
+#  How are services initialized?
+
+## GitLab
+- reset admin user password
+- host name massaging
+
+## Jenkins
+- enable global security & configure
+- Basic config.xml (part of init)
+- setup plugins
+
+Boilerplate job templates for each project subtype
+
+
+## Artifactory
+- reset admin user password
+- repositories
+
+
+## Jira
+- reg process
