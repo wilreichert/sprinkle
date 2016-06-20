@@ -17,8 +17,8 @@ class User:
 
   def __init__(self, username):
     self.username = username
-    userdata = c.kv.get(userbase + username + '/username')
-    if userdata == None:
+    data = c.kv.get(userbase + username + '/username')
+    if data == None:
       print(username + ' not found')
 
   def username(self):
@@ -43,6 +43,22 @@ class User:
     return c.kv.get(userbase + self.username + '/type')
 
 
+class Group:
+  name = ''
+
+  def __init__(self, name):
+    self.name = name
+    data = c.kv.get(groupbase + name + '/name')
+    if data == None:
+      print(name + ' not found')
+
+  def name(self):
+    return self.name
+
+  def users(self):
+    return c.kv.get(groupbase + self.name + '/users').split(' ')
+
+
 def bulkload(data):
   with open(data, 'r') as stream:
     try:
@@ -57,17 +73,17 @@ def bulkload(data):
 
   print('Loading groups...')
   for group in bootstrap_data['groups']:
-    for k, v in group.items():
-      c.kv.set(groupbase + group['name'] + '/' + k, v)
+    c.kv.set(groupbase + group['name'] + '/name', group['name'])
+    c.kv.set(groupbase + group['name'] + '/users', ' '.join(group['users']))
 
 
 def usernames():
   usernames = []
-  userdata = c.kv.find(userbase)
+  data = c.kv.find(userbase)
 
-  for k in userdata.keys():
+  for k in data.keys():
     if 'username' in k:
-      usernames.append(userdata[k])
+      usernames.append(data[k])
   return usernames
 
 
@@ -76,3 +92,20 @@ def users():
   for username in usernames():
     users.append(User(username))
   return users
+
+
+def groupnames():
+  groupnames = []
+  data = c.kv.find(groupbase)
+
+  for k in data.keys():
+    if 'name' in k:
+      groupnames.append(data[k])
+  return groupnames
+
+
+def groups():
+  groups = []
+  for groupname in groupnames():
+    groups.append(Group(groupname))
+  return groups

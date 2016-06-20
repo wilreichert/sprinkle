@@ -6,4 +6,10 @@ users = kvdata.usernames()
 print(users)
 
 admin = kvdata.User('admin')
-admin.email()
+print(admin.email())
+
+groups = kvdata.groupnames()
+print(groups)
+
+dev = kvdata.Group('developers')
+print(dev.users())
