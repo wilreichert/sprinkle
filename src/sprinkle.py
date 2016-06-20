@@ -18,3 +18,11 @@ print(dev.users())
 '''
 
 services = service.services()
+
+for service in services:
+  service.initialize()
+
+for service in services:
+  service.auth()
+  service.create_users()
+  service.create_groups()

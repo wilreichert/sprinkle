@@ -1,45 +1,45 @@
 users:
-  - username: admin
-    name: Admin
-    email: admin@example.com
+  - username: Joe
+    name: Joeseph X. Joe
+    email: joe@example.com
     password: password
-    public_ssh_key: aaa
-    private_ssh_key: aaa
+    public_key:
+    private_key:
     type: human
   - username: bob
     name: Bob Q. Bob
     email: bob@example.com
     password: password
-    public_ssh_key: a
-    private_ssh_key: a1
+    public_key:
+    private_key:
     type: human
   - username: fred
     name: Fredrick Q. Fredderson
     email: fred@example.com
     password: password
-    public_ssh_key: b
-    private_ssh_key: b2
+    public_key:
+    private_key:
     type: human
   - username: jenkins
     name: Jenkins
     email: jenkins@example.com
     password: password
-    public_ssh_key: c
-    private_ssh_key: c3
+    public_key:
+    private_key:
     type: service
   - username: gitlab
     name: Gitlab
     email: gitlab@example.com
     password: password
-    public_ssh_key: d
-    private_ssh_key: d4
+    public_key:
+    private_key:
     type: service
 groups:
   - name: developers
     users:
       - bob
       - fred
-  - name: admin
+  - name: project_admin
     users:
       - admin
   - name: service

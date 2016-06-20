@@ -1,0 +1,19 @@
+
+
+server.groups.create({'name': 'group1', 'path': 'group1'})
+
+server.groups.list(all=True)
+server.projects.owned(all=True)
+
+print(groups[0])
+<class 'gitlab.objects.Group'> => {'visibility_level': 20, 'gitlab': <gitlab.Gitlab object at 0x7f7f0e869748>, 'members': <gitlab.objects.GroupMemberManager object at 0x7f7f0b851780>, 'id': 2, 'web_url': 'http://e1c1da1669a6/groups/group1', 'name': 'group1', 'path': 'group1', 'description': '', '_from_api': True, 'avatar_url': None}
+
+
+dir(groups[0])
+['DEVELOPER_ACCESS', 'GUEST_ACCESS', 'MASTER_ACCESS', 'Member', 'OWNER_ACCESS', 'REPORTER_ACCESS', 'VISIBILITY_INTERNAL', 'VISIBILITY_PRIVATE', 'VISIBILITY_PUBLIC', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_constructorTypes', '_create', '_data_for_gitlab', '_from_api', '_get_display_encoding', '_get_list_or_object', '_get_object', '_id_in_delete_url', '_id_in_update_url', '_obj_to_str', '_set_from_dict', '_set_managers', '_update', '_url', '_urlPlural', 'as_dict', 'avatar_url', 'canCreate', 'canDelete', 'canGet', 'canList', 'canUpdate', 'create', 'delete', 'description', 'display', 'get', 'getListWhenNoId', 'getRequiresId', 'gitlab', 'id', 'idAttr', 'json', 'list', 'managers', 'members', 'name', 'optionalCreateAttrs', 'optionalGetAttrs', 'optionalListAttrs', 'optionalUpdateAttrs', 'path', 'pretty_print', 'requiredCreateAttrs', 'requiredDeleteAttrs', 'requiredGetAttrs', 'requiredListAttrs', 'requiredUpdateAttrs', 'requiredUrlAttrs', 'save', 'shortPrintAttr', 'short_print', 'transfer_project', 'visibility_level', 'web_url']
+
+
+>>> user_data = {'email': 'jen@foo.com', 'username': 'jen', 'name': 'Jen', 'password': 'password'}
+>>> user = server.users.create(user_data)
+>>> print(user)
+<class 'gitlab.objects.User'> => {'last_sign_in_at': None, 'confirmed_at': '2016-06-20T12:25:40.531Z', 'current_sign_in_at': None, 'password': 'password', 'web_url': 'http://e1c1da1669a6/u/jen', 'skype': '', 'username': 'jen', 'id': 2, 'color_scheme_id': 1, 'external': False, 'identities': [], 'gitlab': <gitlab.Gitlab object at 0x7f7f0e869748>, 'website_url': '', 'can_create_group': True, 'bio': None, 'twitter': '', 'two_factor_enabled': False, '_from_api': True, 'avatar_url': 'http://www.gravatar.com/avatar/a874ec9933f6208dff043714a4158c88?s=80&d=identicon', 'state': 'active', 'theme_id': 2, 'created_at': '2016-06-20T12:25:40.339Z', 'name': 'Jen', 'location': None,'projects_limit': 10, 'can_create_project': True, 'email': 'jen@foo.com', 'keys': <gitlab.objects.UserKeyManager object at 0x7f7f0b839dd8>, 'is_admin': False, 'linkedin': ''}

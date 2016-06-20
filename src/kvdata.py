@@ -1,6 +1,7 @@
 import yaml
 
 import consulate
+from Crypto.PublicKey import RSA
 
 userbase = 'sprinkle/users/'
 groupbase = 'sprinkle/groups/'
@@ -22,6 +23,12 @@ class User:
     if data == None:
       print(username + ' not found')
 
+    ''' this needs some more thought and pycrypto needs a freakin update
+    key = c.kv.get(userbase + self.username + '/private_key')
+    if key == None:
+      generate_key_pair(self)
+    '''
+
   def username(self):
     return self.username
 
@@ -35,13 +42,21 @@ class User:
     return c.kv.get(userbase + self.username + '/password')
 
   def private_ssh_key(self):
-    return c.kv.get(userbase + self.username + '/private_ssh_key')
+    return c.kv.get(userbase + self.username + '/private_key')
 
   def public_ssh_key(self):
-    return c.kv.get(userbase + self.username + '/public_ssh_key')
+    return c.kv.get(userbase + self.username + '/public_key')
 
   def type(self):
     return c.kv.get(userbase + self.username + '/type')
+
+  def generate_key_pair(self):
+    print('Generating key pair for ' + self.name)
+    key = RSA.generate(2048)
+    private = key.exportKey('PEM')
+    public = key.publickey().exportKey('PEM')
+    c.kv.set(userbase + self.username + '/private_key', private)
+    c.kv.set(userbase + self.username + '/public_key', public)
 
 
 class Group:
@@ -52,9 +67,6 @@ class Group:
     data = c.kv.get(groupbase + name + '/name')
     if data == None:
       print(name + ' not found')
-
-  def name(self):
-    return self.name
 
   def users(self):
     return c.kv.get(groupbase + self.name + '/users').split(' ')
@@ -94,6 +106,7 @@ def usernames():
 
 
 def users():
+  print('Creating user objects')
   users = []
   for username in usernames():
     users.append(User(username))
@@ -111,6 +124,7 @@ def groupnames():
 
 
 def groups():
+  print('Creating group objects')
   groups = []
   for groupname in groupnames():
     groups.append(Group(groupname))
