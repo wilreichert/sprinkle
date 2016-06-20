@@ -8,5 +8,5 @@
 
 # Projects
 
-- <https://github.com/cablehead/python-consul>
+- <https://github.com/gmr/consulate>
 - <http://pyyaml.org/>

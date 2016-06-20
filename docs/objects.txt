@@ -5,8 +5,8 @@ human or service user in the system
 - name (defaults to username)
 - email (defaults to username@example.com)
 - password (defaults to password)
-- keys (generates key)
-- human / service (mandatory)
+- keys (generate key)
+- human / service (defaults to human)
 
 
 ## groups

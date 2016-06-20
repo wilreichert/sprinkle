@@ -1,4 +1,11 @@
 users:
+  - username: admin
+    name: Admin
+    email: admin@example.com
+    password: password
+    public_ssh_key: aaa
+    private_ssh_key: aaa
+    type: human
   - username: bob
     name: Bob Q. Bob
     email: bob@example.com
@@ -33,7 +40,7 @@ groups:
       - bob
       - fred
   - name: admin
-      - bob
+      - admin
   - name: service
     users:
       - jenkins
