@@ -46,3 +46,14 @@ groups:
     users:
       - jenkins
       - gitlab
+services:
+  - name: gitlab01
+    type: gitlab
+    url: http://localhost
+    admin: root
+    password: password
+  - name: jenkins01
+    type: jenkins
+    url: http://localhost:8080
+    admin: admin
+    password: password

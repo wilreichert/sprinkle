@@ -8,5 +8,7 @@
 
 # Projects
 
-- <https://github.com/gmr/consulate>
 - <http://pyyaml.org/>
+- <https://github.com/gmr/consulate>
+- <https://github.com/gpocentek/python-gitlab>
+- <https://git.openstack.org/cgit/openstack/python-jenkins>

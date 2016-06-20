@@ -4,6 +4,7 @@ import consulate
 
 userbase = 'sprinkle/users/'
 groupbase = 'sprinkle/groups/'
+servicebase = 'sprinkle/services/'
 c = consulate.Session()
 
 
@@ -75,6 +76,11 @@ def bulkload(data):
   for group in bootstrap_data['groups']:
     c.kv.set(groupbase + group['name'] + '/name', group['name'])
     c.kv.set(groupbase + group['name'] + '/users', ' '.join(group['users']))
+
+  print('Loading services...')
+  for service in bootstrap_data['services']:
+    for k, v in service.items():
+      c.kv.set(servicebase + service['name'] + '/' + k, v)
 
 
 def usernames():

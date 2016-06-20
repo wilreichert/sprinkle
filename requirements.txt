@@ -1,3 +1,8 @@
 consulate==0.6.0
+multi-key-dict==2.0.3
+pbr==1.10.0
+python-gitlab==0.13
+python-jenkins==0.4.12
 PyYAML==3.11
 requests==2.10.0
+six==1.10.0

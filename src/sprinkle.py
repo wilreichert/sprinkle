@@ -1,7 +1,9 @@
 import kvdata
+import service
 
 kvdata.bulkload('bootstrap.yaml')
 
+'''
 users = kvdata.usernames()
 print(users)
 
@@ -13,3 +15,6 @@ print(groups)
 
 dev = kvdata.Group('developers')
 print(dev.users())
+'''
+
+services = service.services()
